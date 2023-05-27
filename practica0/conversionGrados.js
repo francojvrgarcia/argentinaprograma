@@ -1,13 +1,13 @@
-let farenheitA = 50;
-let farenheitB = 75;
+let fahrenheitA = 50;
+let fahrenheitB = 75;
 
-let celsiusA = (farenheitA - 32) * 5/9
+let celsiusA = (fahrenheitA - 32) * 5/9
 
 console.log(celsiusA)
 
 //El resultado es 10
 
-let celsiusB = (farenheitB - 32) * 5/9
+let celsiusB = (fahrenheitB - 32) * 5/9
 
 console.log(celsiusB)
 
