@@ -1,0 +1,30 @@
+# Archivos y directorios específicos
+node_modules/
+dist/
+build/
+.env
+
+# Archivos de log
+*.log
+
+# Archivos de respaldo
+*~
+*.bak
+
+# Dependencias y paquetes generados
+package-lock.json
+yarn.lock
+
+# IDE / Editores específicos
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Extensiones de archivos generados
+*.min.css
+*.min.js
+
+# Otros archivos generados
+.DS_Store
+Thumbs.db
