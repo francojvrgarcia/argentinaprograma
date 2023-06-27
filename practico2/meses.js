@@ -21,6 +21,7 @@ const meses = {
 };
 
 rl.question('Ingresa un número del 1 al 12: ', (mes) => {
+  mes = parseInt(mes); 
   if (mes >= 1 && mes <= 12) {
     let cantidadDias;
 

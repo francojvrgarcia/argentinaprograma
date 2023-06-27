@@ -7,5 +7,5 @@ console.log("El tamaño de la cita es: " + tamañoDeCita);
 let indice = cita.indexOf(substring);
 console.log("El índice del substring es: " + indice);
 
-let citaRevisada = cita.slice(0, indice) + substring + cita.slice(indice + substring.length);
+let citaRevisada = cita.slice(0, indice) + substring;
 console.log("La cita revisada es: " + citaRevisada);
