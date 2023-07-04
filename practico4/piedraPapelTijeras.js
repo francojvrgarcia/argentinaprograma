@@ -5,7 +5,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const opciones = ['piedra', 'papel', 'tijeras'];
+const opciones = ['piedra', 'papel', 'tijera'];
 const resultados = ['Empate', 'Gana la computadora', 'Gana el usuario'];
 
 function obtenerJugadaComputadora() {
@@ -13,13 +13,12 @@ function obtenerJugadaComputadora() {
 }
 
 function obtenerJugadaUsuario(callback) {
-  rl.question('Elige tu jugada (0: piedra, 1: papel, 2: tijeras): ', (jugada) => {
-    const jugadaNum = parseInt(jugada);
-    if (isNaN(jugadaNum) || jugadaNum < 0 || jugadaNum > 2) {
-      console.log('Jugada inválida. Debes ingresar un número válido (0, 1, o 2).');
+  rl.question('Elige tu jugada (piedra, papel o tijera): ', (jugada) => {
+    if (!opciones.includes(jugada)) {
+      console.log('Jugada inválida. Debes ingresar piedra, papel o tijeras.');
       obtenerJugadaUsuario(callback);
     } else {
-      callback(jugadaNum);
+      callback(jugada);
     }
   });
 }
@@ -39,10 +38,10 @@ function determinarGanador(jugadaComputadora, jugadaUsuario) {
 }
 
 function jugar() {
-  rl.question('¿Cuántas jugadas quieres jugar? (1, 2, o 3): ', (numJugadas) => {
+  rl.question('¿Cuántas jugadas quieres jugar? (1, 2 o 3): ', (numJugadas) => {
     const numJugadasNum = parseInt(numJugadas);
     if (isNaN(numJugadasNum) || numJugadasNum < 1 || numJugadasNum > 3) {
-      console.log('Cantidad de jugadas inválida. Debes ingresar un número válido (1, 2, o 3).');
+      console.log('Cantidad de jugadas inválida. Debes ingresar un número válido (1, 2 o 3).');
       rl.close();
       return;
     }
@@ -54,16 +53,15 @@ function jugar() {
     let jugadasRealizadas = 0;
 
     function realizarJugada() {
-
       obtenerJugadaUsuario((jugada) => {
-		console.log(`Jugada ${jugadasRealizadas + 1}:`);   
+        console.log(`Jugada ${jugadasRealizadas + 1}:`);   
         jugadaUsuario = jugada;
-        console.log(`El usuario eligió: ${opciones[jugadaUsuario]}`);
+        console.log(`El usuario eligió: ${jugadaUsuario}`);
 		
-		jugadaComputadora = obtenerJugadaComputadora();
-        console.log(`La computadora eligió: ${opciones[jugadaComputadora]}`);
+        jugadaComputadora = opciones[obtenerJugadaComputadora()];
+        console.log(`La computadora eligió: ${jugadaComputadora}`);
 
-        const resultado = determinarGanador(jugadaComputadora, jugadaUsuario);
+        const resultado = determinarGanador(opciones.indexOf(jugadaComputadora), opciones.indexOf(jugadaUsuario));
         console.log(`El resultado fue: ${resultado}`);
 
         if (resultado === resultados[1]) {
