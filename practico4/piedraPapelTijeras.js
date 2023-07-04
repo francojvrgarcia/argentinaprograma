@@ -15,7 +15,7 @@ function obtenerJugadaComputadora() {
 function obtenerJugadaUsuario(callback) {
   rl.question('Elige tu jugada (piedra, papel o tijera): ', (jugada) => {
     if (!opciones.includes(jugada)) {
-      console.log('Jugada inválida. Debes ingresar piedra, papel o tijeras.');
+      console.log('Jugada inválida. Debes ingresar piedra, papel o tijera.');
       obtenerJugadaUsuario(callback);
     } else {
       callback(jugada);
